@@ -20,8 +20,9 @@ class Category extends Model
             'parent_id' => $parent_id  //父亲id
         ];
         $order = [
+            'listorder'=>'desc',
             'id'=> 'desc'
         ];
-        return $this->where($where)->order($order)->paginate(2);
+        return $this->where($where)->order($order)->paginate();
     }
 }

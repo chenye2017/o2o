@@ -14,7 +14,7 @@ class Category extends Validate
     ];
 
     protected $scene = [
-        'save'=>['name', 'parent_id'],//添加的时候验证的字段
+        'save'=>['name', 'parent_id', 'id'],//添加的时候验证的字段
         'listorder'=>['id', 'listorder'] //排序
     ];
 }
