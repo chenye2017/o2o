@@ -18,4 +18,21 @@ class Index extends Controller
     {
         return $this->fetch();
     }
+
+    public function test()
+    {
+        $content = \Map::getAddressLatLon('天津工业大学');
+        var_dump($content);
+    }
+
+    public function test1()
+    {
+        return \Map::getMap('天津工业大学');
+
+    }
+
+    public function test2()
+    {
+        \Mail::doMail();
+    }
 }
