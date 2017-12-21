@@ -25,4 +25,16 @@ class Category extends Model
         ];
         return $this->where($where)->order($order)->paginate();
     }
+
+    public function getCategoryByParentId($pid)
+    {
+        $where = [
+            'status' => 1,  //1是没有删除的
+            'parent_id' => $pid
+        ];
+        $order = [
+            'id'=>'desc'
+        ];
+        return $this->where($where)->order($order)->select();
+    }
 }

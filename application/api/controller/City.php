@@ -7,13 +7,15 @@
  */
 namespace app\api\controller;
 
+use think\Controller;
 use think\Request;
+use think\File;
 
-class City {
+class City extends Controller {
     public function getCityByPid()
     {
-        $pid = Request::instance()->param('pid');
-        $citys = model('City')->getCityByParentId($pid);
-        return show(1,'success', $citys);
+        /*$file = Request::instance()->file();
+        $info = $file->move('upload');
+        var_dump($info);*/
     }
 }
