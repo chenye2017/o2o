@@ -7,13 +7,24 @@
  */
 namespace app\api\controller;
 
+use think\Controller;
 use think\Request;
+use think\File;
 
-class Image {
+class Image extends Controller {
     public function upload()
     {
-        $pid = Request::instance()->param('pid');
-        $citys = model('City')->getCityByParentId($pid);
-        return show(1,'success', $citys);
+        //$fileTemp = Request::instance()->file('file');
+        $upload = request()->file();
+        $fileTemp = $upload['Filedata'];
+        $file = $fileTemp->move('image');
+        $filename = '/image/';
+        $filename = $filename.$file->getSavename();
+        if ($upload) {
+            return show(1, 'success', ['filename'=>$filename]);
+        } else {
+            return show(0, 'error', $upload->getError());
+        }
+
     }
 }

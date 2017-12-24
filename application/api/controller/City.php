@@ -9,13 +9,13 @@ namespace app\api\controller;
 
 use think\Controller;
 use think\Request;
-use think\File;
+
 
 class City extends Controller {
     public function getCityByPid()
     {
-        /*$file = Request::instance()->file();
-        $info = $file->move('upload');
-        var_dump($info);*/
+        $pid = Request::instance()->post('pid');
+        $city = model('City')->getCityByParentId($pid);
+        return show(1, 'success', $city);
     }
 }
